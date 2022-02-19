@@ -20,23 +20,22 @@ const modals = () => {
 			});
 		});
 
-		close.addEventListener('click', () => {
+		const closeModal = () => {
 			windows.forEach(item => {
 				item.style.display = 'none';
 			});
 
 			modal.style.display = 'none';
 			document.body.style.overflow = '';
+		};
+
+		close.addEventListener('click', () => {
+			closeModal();
 		});
 
 		modal.addEventListener('click', (e) => {
 			if (e.target === modal && closeCLickOverlay) {
-				windows.forEach(item => {
-					item.style.display = 'none';
-				});
-
-				modal.style.display = 'none';
-				document.body.style.overflow = '';
+				closeModal();
 			}
 		});
 
